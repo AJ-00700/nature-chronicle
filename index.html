@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="自然纪 — 探索、记录并分享野生动物照片，加入全球自然爱好者社区。">
+<meta name="theme-color" content="#2E7D32">
+<meta property="og:title" content="自然纪 - 探索·记录·保护">
+<meta property="og:description" content="观察记录野生动物，加入公民科学社区。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<title>自然纪 — 探索·记录·保护</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--green:#4CAF50;--green-dark:#2E7D32;--green-darker:#1B5E20;--green-light:#E8F5E9;--green-pale:#F1F8E9;--bg:#f5f5f5;--bg-white:#fff;--text:#222;--text-sec:#666;--text-muted:#999;--border:#e8e8e8;--shadow:0 2px 8px rgba(0,0,0,.08);--shadow-lg:0 6px 20px rgba(0,0,0,.12);--r:10px;--r-sm:6px;--ease:cubic-bezier(.4,0,.2,1)}
+[data-theme="dark"]{--bg:#0f0f0f;--bg-white:#1a1a1a;--text:#e0e0e0;--text-sec:#aaa;--text-muted:#666;--border:#2a2a2a;--shadow:0 2px 8px rgba(0,0,0,.35);--shadow-lg:0 6px 20px rgba(0,0,0,.45);--green-light:#162b16;--green-pale:#121e12}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Noto Sans SC',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}a{color:inherit;text-decoration:none}
+/* NAV */.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-white);border-bottom:1px solid var(--border);height:60px;backdrop-filter:blur(16px)}.nav.scrolled{box-shadow:var(--shadow)}.nav-inner{max-width:1280px;margin:0 auto;height:100%;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}.logo-txt{display:flex;flex-direction:column;line-height:1.15}.logo-brand{font-size:1.2rem;font-weight:700;color:var(--green-dark)}.logo-sub{font-size:.6rem;color:var(--text-muted);letter-spacing:2px}.nav-left{display:flex;align-items:center;gap:28px}.nav-menu{display:flex;list-style:none;gap:2px}.nav-menu a{display:block;padding:8px 14px;border-radius:var(--r-sm);font-size:.9rem;font-weight:500;color:var(--text-sec);transition:all .2s}.nav-menu a:hover{color:var(--green-dark);background:var(--green-light)}.nav-right{display:flex;align-items:center;gap:4px}.n-btn{background:none;border:none;cursor:pointer;font-family:inherit;padding:7px 14px;border-radius:var(--r-sm);font-size:.88rem;color:var(--text-sec);transition:all .2s}.n-btn:hover{color:var(--green-dark);background:var(--green-light)}.n-btn-green{background:var(--green)!important;color:#fff!important;padding:7px 20px;border-radius:20px;font-weight:600}.n-btn-green:hover{background:var(--green-dark)!important}.n-btn-theme{width:34px;height:34px;padding:0;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.85rem}.hamburger{display:none;background:none;border:none;cursor:pointer;font-size:1.3rem;color:var(--text)}.mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg-white);border-bottom:1px solid var(--border);box-shadow:var(--shadow);padding:12px 20px;flex-direction:column;gap:4px}.mobile-menu.open{display:flex}.mobile-menu a{display:block;padding:10px 14px;border-radius:var(--r-sm);font-size:.92rem;color:var(--text-sec)}.user-info{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:500}.user-av{width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+/* HERO */.hero{margin-top:60px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0d1f0d,#132913 35%,#1a3a1a 65%,#1B5E20);padding:70px 0 0}.hero-emoji{position:absolute;right:5%;top:50%;transform:translateY(-55%);font-size:clamp(8rem,18vw,17rem);opacity:.1;pointer-events:none;user-select:none;filter:blur(1px)}.hero-inner{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:2}.hero-body{max-width:550px;padding-bottom:48px}.hero h1{font-size:clamp(1.8rem,4.5vw,2.7rem);font-weight:900;color:#fff;line-height:1.25;margin-bottom:16px}.hero p{font-size:1rem;color:rgba(255,255,255,.72);margin-bottom:30px}.hero-btns{display:flex;gap:12px;flex-wrap:wrap}.h-btn{display:inline-flex;align-items:center;gap:7px;padding:11px 26px;border-radius:22px;font-size:.92rem;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:all .25s var(--ease)}.h-btn-g{background:var(--green);color:#fff}.h-btn-g:hover{background:#43A047;transform:translateY(-1px)}.h-btn-o{background:transparent;color:rgba(255,255,255,.85);border:1.5px solid rgba(255,255,255,.35)}.h-btn-o:hover{border-color:#fff;color:#fff}.hero-stats{background:rgba(0,0,0,.3);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.06)}.hero-stats-inner{max-width:1280px;margin:0 auto;padding:20px 24px;display:flex;gap:48px;flex-wrap:wrap}.h-stat{display:flex;align-items:center;gap:10px;color:#fff}.h-stat-icon{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.85rem;color:rgba(255,255,255,.6)}.h-stat-num{font-size:1.3rem;font-weight:700;line-height:1.15}.h-stat-label{font-size:.72rem;color:rgba(255,255,255,.5)}
+/* MAIN */.wrap{max-width:1280px;margin:0 auto;padding:28px 24px 40px;display:grid;grid-template-columns:1fr 340px;gap:26px}.col-left{min-width:0}.col-right{display:flex;flex-direction:column;gap:22px}
+/* SEARCH BAR */.search-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center}.search-input{flex:1;min-width:200px;padding:10px 16px;border:1.5px solid var(--border);border-radius:24px;font-size:.9rem;font-family:inherit;background:var(--bg-white);color:var(--text);outline:none;transition:border .2s}.search-input:focus{border-color:var(--green)}.filter-sel{padding:9px 14px;border:1.5px solid var(--border);border-radius:20px;font-size:.84rem;font-family:inherit;background:var(--bg-white);color:var(--text);outline:none;cursor:pointer}.filter-sel:focus{border-color:var(--green)}
+/* SECTION HEADERS */.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.sh h2{font-size:1.2rem;font-weight:700}.sh a,.sh button{font-size:.82rem;color:var(--green);font-weight:500;background:none;border:none;cursor:pointer;font-family:inherit}.sh a:hover,.sh button:hover{text-decoration:underline}
+/* OBS CARDS */.og{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:36px}.oc{background:var(--bg-white);border-radius:var(--r);overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}.oc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}.oc-img{position:relative;width:100%;padding-top:88%;overflow:hidden}.oc-img-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem}.badge-rg{position:absolute;top:9px;left:9px;z-index:3;background:var(--green);color:#fff;font-size:.66rem;padding:2px 9px;border-radius:4px;font-weight:600}.badge-r{position:absolute;top:9px;right:9px;z-index:3;font-size:.64rem;padding:2px 7px;border-radius:4px;font-weight:700;display:flex;align-items:center;gap:3px;white-space:nowrap}.r1,.r2,.r3{background:#C8E6C9;color:#2E7D32}.r4,.r5{background:#BBDEFB;color:#1565C0}.r6,.r7{background:#E1BEE7;color:#7B1FA2}.r8,.r9{background:#FFCCBC;color:#D84315}.r10{background:linear-gradient(135deg,#FFD700,#FF6F00);color:#fff}.oc-b{padding:11px 13px 13px}.oc-name{font-size:.92rem;font-weight:600;margin-bottom:1px}.oc-latin{font-size:.74rem;font-style:italic;color:var(--text-muted);margin-bottom:9px}.oc-foot{display:flex;align-items:center;justify-content:space-between;font-size:.73rem;color:var(--text-muted)}.oc-user{display:flex;align-items:center;gap:5px}.oc-avatar{width:21px;height:21px;border-radius:50%;flex-shrink:0;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--green-dark);font-weight:700}.oc-nums{display:flex;gap:8px}.oc-nums span{display:flex;align-items:center;gap:3px}.oc-nums i{font-size:.65rem}.oc-time{font-size:.69rem;color:var(--text-muted);margin-top:6px}.oc-time i{margin-right:3px}.no-data{text-align:center;padding:48px 20px;color:var(--text-muted);font-size:.95rem}
+/* NEW SPECIES */.nsg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px}.nsc{background:var(--bg-white);border-radius:var(--r);overflow:hidden;border:1px solid var(--border);display:flex;cursor:pointer;transition:transform .25s,box-shadow .25s}.nsc:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}.nsc-img{width:96px;min-height:86px;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;font-size:2.5rem}.nsc-badge{position:absolute;top:7px;left:7px;background:var(--green);color:#fff;font-size:.6rem;padding:1px 7px;border-radius:3px;font-weight:700}.nsc-b{padding:10px 12px;display:flex;flex-direction:column;justify-content:center;min-width:0}.nsc-name{font-size:.86rem;font-weight:600}.nsc-fam{font-size:.72rem;color:var(--text-muted);margin-bottom:3px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}.nsc-who{font-size:.7rem;color:var(--text-muted)}.nsc-who b{color:var(--text-sec);font-weight:500}.badge-r-inline{font-size:.58rem;padding:1px 6px;border-radius:3px;font-weight:700;display:inline-flex;align-items:center;gap:2px}
+/* SIDEBAR */.sc{background:var(--bg-white);border-radius:var(--r);border:1px solid var(--border);overflow:hidden}.sc-h{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 11px;border-bottom:1px solid var(--border)}.sc-h h3{font-size:1rem;font-weight:700}.sc-h a,.sc-h button{font-size:.78rem;color:var(--green);font-weight:500;background:none;border:none;cursor:pointer;font-family:inherit}.act{display:flex;align-items:center;gap:10px;padding:11px 16px;transition:background .2s}.act:hover{background:var(--green-pale)}.act-av{width:34px;height:34px;border-radius:50%;flex-shrink:0;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--green-dark);font-weight:700}.act-txt{flex:1;min-width:0;font-size:.8rem;line-height:1.45}.act-txt b{font-weight:600}.act-txt .hl{color:var(--green);font-weight:600}.act-time{font-size:.68rem;color:var(--text-muted);margin-top:1px}.act-thumb{width:40px;height:40px;border-radius:var(--r-sm);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem}.steps{display:flex;align-items:flex-start;justify-content:center;gap:6px;padding:20px 14px;text-align:center}.step{flex:1;display:flex;flex-direction:column;align-items:center}.step-ic{width:48px;height:48px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--green-dark);margin-bottom:8px}.step-l{font-size:.76rem;font-weight:600;margin-bottom:3px}.step-d{font-size:.66rem;color:var(--text-muted);line-height:1.45}.step-arr{display:flex;align-items:center;padding-top:14px;color:var(--text-muted);font-size:.8rem;opacity:.5}.rl{padding:14px 16px;display:flex;flex-direction:column;gap:7px;font-size:.78rem}.rl-row{display:flex;align-items:center;gap:9px}.rl-badge{font-size:.65rem;padding:2px 8px;border-radius:4px;font-weight:700;display:flex;align-items:center;gap:3px;min-width:80px;justify-content:center}.rl-desc{color:var(--text-muted)}
+/* MODAL */.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;justify-content:center;align-items:center;animation:fadeIn .2s}.modal-overlay.active{display:flex}.modal-card{background:var(--bg-white);border-radius:16px;width:90%;max-width:460px;max-height:85vh;overflow-y:auto;padding:28px;position:relative;animation:slideUp .3s var(--ease)}.modal-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}.modal-close:hover{background:var(--green-light)}.modal-title{font-size:1.25rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px}.form-group{margin-bottom:16px}.form-label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--text)}.form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;font-family:inherit;background:var(--bg);color:var(--text);outline:none;transition:border .2s}.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--green)}.form-textarea{min-height:80px;resize:vertical}.form-btn{width:100%;padding:13px;background:var(--green);color:#fff;border:none;border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s;margin-top:8px}.form-btn:hover{background:var(--green-dark)}.form-btn:disabled{background:#ccc;cursor:not-allowed}.form-link{text-align:center;margin-top:14px;font-size:.84rem;color:var(--text-muted)}.form-link a{color:var(--green);cursor:pointer;font-weight:500}.form-link a:hover{text-decoration:underline}.form-error{color:#D32F2F;font-size:.8rem;margin-top:6px}.emoji-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}.emoji-btn{background:var(--bg);border:2px solid transparent;border-radius:8px;font-size:1.4rem;padding:6px;cursor:pointer;transition:all .15s;text-align:center}.emoji-btn:hover{background:var(--green-light)}.emoji-btn.sel{border-color:var(--green);background:var(--green-light)}
+/* TOAST */.toast-container{position:fixed;top:76px;right:20px;z-index:3000;display:flex;flex-direction:column;gap:8px}.toast{padding:12px 20px;border-radius:10px;font-size:.88rem;font-weight:500;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,.2);animation:slideInR .3s var(--ease);max-width:360px;display:flex;align-items:center;gap:8px}.toast-success{background:#2E7D32}.toast-info{background:#1565C0}.toast-error{background:#C62828}.toast-new{background:#E65100}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes slideInR{from{opacity:0;transform:translateX(80px)}to{opacity:1;transform:translateX(0)}}
+/* GRADIENTS */.g-mammal{background:linear-gradient(135deg,#A1887F,#4E342E)}.g-bird{background:linear-gradient(135deg,#64B5F6,#0D47A1)}.g-reptile{background:linear-gradient(135deg,#81C784,#2E7D32)}.g-ocean{background:linear-gradient(135deg,#4DD0E1,#006064)}.g-insect{background:linear-gradient(135deg,#CE93D8,#4A148C)}.g-amphibian{background:linear-gradient(135deg,#80CBC4,#00796B)}.g-other{background:linear-gradient(135deg,#BCAAA4,#5D4037)}.g-disc{background:linear-gradient(135deg,#A5D6A7,#388E3C)}
+/* FOOTER */.ft{background:#141414;color:#aaa;margin-top:40px}.ft-inner{max-width:1280px;margin:0 auto;padding:44px 24px 20px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}.ft h4{color:#eee;font-size:.92rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}.ft p{font-size:.8rem;line-height:1.75;color:#777}.ft-links{list-style:none}.ft-links li{margin-bottom:5px}.ft-links a{color:#777;font-size:.8rem;transition:color .2s}.ft-links a:hover{color:var(--green)}.ft-social{display:flex;gap:8px;margin-top:12px}.ft-social a{width:32px;height:32px;border-radius:50%;background:#222;color:#777;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s}.ft-social a:hover{background:var(--green);color:#fff}.ft-bottom{max-width:1280px;margin:0 auto;padding:16px 24px;border-top:1px solid #2a2a2a;text-align:center;font-size:.74rem;color:#444}
+/* BTT */.btt{position:fixed;bottom:26px;right:26px;z-index:999;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;border:none;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 14px rgba(46,125,50,.35);opacity:0;transform:translateY(12px);transition:all .3s var(--ease)}.btt.show{opacity:1;transform:translateY(0)}.btt:hover{background:var(--green-dark)}
+/* ANIM */.fi{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}.fi.v{opacity:1;transform:translateY(0)}
+/* LOADING */.loading{display:flex;justify-content:center;padding:40px}.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+/* RESPONSIVE */@media(max-width:1100px){.og{grid-template-columns:repeat(3,1fr)}.nsg{grid-template-columns:repeat(2,1fr)}}@media(max-width:900px){.wrap{grid-template-columns:1fr}.og{grid-template-columns:repeat(2,1fr)}.nav-menu{display:none!important}.hamburger{display:block}.ft-inner{grid-template-columns:1fr 1fr}}@media(max-width:600px){.og{grid-template-columns:1fr 1fr;gap:10px}.nsg{grid-template-columns:1fr}.hero-btns{flex-direction:column;align-items:flex-start}.hero-stats-inner{gap:14px}.ft-inner{grid-template-columns:1fr}.steps{flex-direction:column;gap:14px}.step-arr{transform:rotate(90deg);padding:0}.hero-emoji{display:none}.search-bar{flex-direction:column}.search-input{min-width:0}}
+</style>
+</head>
+<body>
+<div class="toast-container" id="toastBox"></div>
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<div class="nav-left">
+<a href="#" class="logo"><svg width="34" height="34" viewBox="0 0 64 64" fill="none"><path d="M32 4C32 4 8 18 8 38C8 52 18 60 32 60C46 60 56 52 56 38C56 18 32 4 32 4Z" fill="#4CAF50"/><path d="M32 16V48" stroke="#2E7D32" stroke-width="2" stroke-linecap="round"/><path d="M32 26L22 20M32 26L42 20" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/><path d="M32 34L20 30M32 34L44 30" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/><path d="M32 42L24 40M32 42L40 40" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/><circle cx="32" cy="32" r="8" fill="#fff" opacity=".9"/><circle cx="32" cy="32" r="5.5" fill="#2E7D32"/><circle cx="32" cy="32" r="3" fill="#1B5E20"/><circle cx="30" cy="30.5" r="1.2" fill="#fff" opacity=".8"/></svg><div class="logo-txt"><span class="logo-brand">自然纪</span><span class="logo-sub">探索 · 记录 · 保护</span></div></a>
+<ul class="nav-menu"><li><a href="#obs">探索</a></li><li><a href="#community">社区</a></li><li><a href="#">项目</a></li><li><a href="#">关于我们</a></li></ul>
+</div>
+<div class="nav-right">
+<div id="authLoading" style="display:none"><div class="spinner" style="width:20px;height:20px;border-width:2px"></div></div>
+<div id="authLoggedOut">
+<button class="n-btn" onclick="showModal('loginModal')">登录</button>
+<button class="n-btn n-btn-green" onclick="showModal('registerModal')">注册</button>
+</div>
+<div id="authLoggedIn" style="display:none">
+<button class="n-btn n-btn-green" onclick="showModal('uploadModal')"><i class="fas fa-plus"></i> 上传</button>
+<div class="user-info"><div class="user-av" id="userAvatar">U</div><span id="userName">用户</span></div>
+<button class="n-btn" onclick="signOut()" title="退出"><i class="fas fa-sign-out-alt"></i></button>
+</div>
+<button class="n-btn n-btn-theme" id="themeBtn"><i class="fas fa-moon"></i></button>
+<button class="hamburger" id="hbg"><i class="fas fa-bars"></i></button>
+</div>
+</div>
+<div class="mobile-menu" id="mm"><a href="#obs">探索</a><a href="#community">社区</a><a href="#">项目</a><a href="#">关于我们</a>
+<a href="#" onclick="showModal('loginModal')">登录</a></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-emoji">🐼</div>
+<div class="hero-inner"><div class="hero-body">
+<h1>探索自然，<br>记录生命之美</h1>
+<p>观察、记录并分享野生动物的照片，帮助更多人了解和保护自然。</p>
+<div class="hero-btns">
+<a href="#obs" class="h-btn h-btn-g"><i class="fas fa-binoculars"></i> 开始观察</a>
+<button class="h-btn h-btn-o" onclick="showModal('uploadModal')"><i class="fas fa-camera"></i> 上传记录</button>
+</div>
+</div></div>
+<div class="hero-stats"><div class="hero-stats-inner">
+<div class="h-stat"><div class="h-stat-icon"><i class="fas fa-feather-alt"></i></div><div><div class="h-stat-num" id="statObs">0</div><div class="h-stat-label">条观察记录</div></div></div>
+<div class="h-stat"><div class="h-stat-icon"><i class="fas fa-users"></i></div><div><div class="h-stat-num" id="statUsers">0</div><div class="h-stat-label">位观察者</div></div></div>
+<div class="h-stat"><div class="h-stat-icon"><i class="fas fa-dna"></i></div><div><div class="h-stat-num" id="statSpecies">0</div><div class="h-stat-label">种生物</div></div></div>
+<div class="h-stat"><div class="h-stat-icon"><i class="fas fa-star"></i></div><div><div class="h-stat-num" id="statDisc">0</div><div class="h-stat-label">新物种发现</div></div></div>
+</div></div>
+</section>
+
+<!-- MAIN -->
+<div class="wrap">
+<div class="col-left">
+<!-- SEARCH -->
+<div class="search-bar fi" id="obs">
+<input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索物种名称..." oninput="filterData()">
+<select class="filter-sel" id="filterCategory" onchange="filterData()">
+<option value="">全部类别</option><option value="mammal">🐾 哺乳动物</option><option value="bird">🐦 鸟类</option>
+<option value="reptile">🦎 爬行动物</option><option value="ocean">🐬 海洋生物</option><option value="insect">🦋 昆虫</option>
+<option value="amphibian">🐸 两栖动物</option></select>
+<select class="filter-sel" id="filterRarity" onchange="filterData()">
+<option value="">全部稀有度</option><option value="1-3">Lv.1-3 常见</option><option value="4-5">Lv.4-5 少见</option>
+<option value="6-7">Lv.6-7 稀有</option><option value="8-9">Lv.8-9 珍稀</option><option value="10">Lv.10 极危</option></select>
+</div>
+<!-- OBS GRID -->
+<div class="sh fi"><h2>最近的观察记录</h2><a href="#">查看全部</a></div>
+<div class="og" id="obsGrid"><div class="loading"><div class="spinner"></div></div></div>
+<!-- DISCOVERIES -->
+<div class="sh fi"><h2>新物种发现</h2><button onclick="showModal('discoveryModal')">+ 提交发现</button></div>
+<div class="nsg" id="discGrid"><div class="loading"><div class="spinner"></div></div></div>
+</div>
+
+<!-- RIGHT COL -->
+<div class="col-right">
+<div class="sc fi" id="community">
+<div class="sc-h"><h3>社区动态</h3><span></span></div>
+<div id="activityFeed"><div class="loading"><div class="spinner"></div></div></div>
+</div>
+<div class="sc fi">
+<div class="sc-h"><h3>如何参与</h3><span></span></div>
+<div class="steps">
+<div class="step"><div class="step-ic"><i class="fas fa-camera"></i></div><div class="step-l">1. 观察拍照</div><div class="step-d">在野外发现动物，拍下照片</div></div>
+<div class="step-arr"><i class="fas fa-arrow-right"></i></div>
+<div class="step"><div class="step-ic"><i class="fas fa-plus-circle"></i></div><div class="step-l">2. 上传记录</div><div class="step-d">上传照片并填写信息</div></div>
+<div class="step-arr"><i class="fas fa-arrow-right"></i></div>
+<div class="step"><div class="step-ic"><i class="fas fa-users"></i></div><div class="step-l">3. 识别分享</div><div class="step-d">与社区一起识别发现</div></div>
+</div></div>
+<div class="sc fi">
+<div class="sc-h"><h3>稀有度等级说明</h3><span></span></div>
+<div class="rl">
+<div class="rl-row"><span class="rl-badge r1">Lv.1-3 常见</span><span class="rl-desc">分布广泛</span></div>
+<div class="rl-row"><span class="rl-badge r4">Lv.4-5 少见</span><span class="rl-desc">数量有限</span></div>
+<div class="rl-row"><span class="rl-badge r6">Lv.6-7 稀有</span><span class="rl-desc">种群稀少</span></div>
+<div class="rl-row"><span class="rl-badge r8">Lv.8-9 珍稀</span><span class="rl-desc">国家保护</span></div>
+<div class="rl-row"><span class="rl-badge r10">Lv.10 极危</span><span class="rl-desc">极度濒危</span></div>
+</div></div>
+</div></div>
+
+<!-- ===== MODALS ===== -->
+<!-- LOGIN -->
+<div class="modal-overlay" id="loginModal">
+<div class="modal-card"><button class="modal-close" onclick="hideModal('loginModal')">&times;</button>
+<div class="modal-title"><i class="fas fa-sign-in-alt" style="color:var(--green)"></i> 登录自然纪</div>
+<div class="form-group"><label class="form-label">邮箱</label><input type="email" class="form-input" id="loginEmail" placeholder="your@email.com"></div>
+<div class="form-group"><label class="form-label">密码</label><input type="password" class="form-input" id="loginPwd" placeholder="输入密码"></div>
+<div id="loginError" class="form-error" style="display:none"></div>
+<button class="form-btn" id="loginBtn" onclick="signIn()">登录</button>
+<div class="form-link">还没有账号？<a onclick="hideModal('loginModal');showModal('registerModal')">立即注册</a></div>
+</div></div>
+
+<!-- REGISTER -->
+<div class="modal-overlay" id="registerModal">
+<div class="modal-card"><button class="modal-close" onclick="hideModal('registerModal')">&times;</button>
+<div class="modal-title"><i class="fas fa-user-plus" style="color:var(--green)"></i> 注册自然纪</div>
+<div class="form-group"><label class="form-label">用户名</label><input type="text" class="form-input" id="regName" placeholder="你的昵称"></div>
+<div class="form-group"><label class="form-label">邮箱</label><input type="email" class="form-input" id="regEmail" placeholder="your@email.com"></div>
+<div class="form-group"><label class="form-label">密码</label><input type="password" class="form-input" id="regPwd" placeholder="至少6位密码"></div>
+<div id="regError" class="form-error" style="display:none"></div>
+<button class="form-btn" id="regBtn" onclick="signUp()">注册</button>
+<div class="form-link">已有账号？<a onclick="hideModal('registerModal');showModal('loginModal')">去登录</a></div>
+</div></div>
+
+<!-- UPLOAD OBSERVATION -->
+<div class="modal-overlay" id="uploadModal">
+<div class="modal-card"><button class="modal-close" onclick="hideModal('uploadModal')">&times;</button>
+<div class="modal-title"><i class="fas fa-camera" style="color:var(--green)"></i> 上传观察记录</div>
+<div id="uploadNeedLogin" style="text-align:center;padding:20px;color:var(--text-muted)">
+请先 <a style="color:var(--green);cursor:pointer;font-weight:600" onclick="hideModal('uploadModal');showModal('loginModal')">登录</a> 后上传
+</div>
+<div id="uploadForm" style="display:none">
+<div class="form-group"><label class="form-label">物种名称 *</label><input type="text" class="form-input" id="upName" placeholder="如：大熊猫"></div>
+<div class="form-group"><label class="form-label">拉丁学名</label><input type="text" class="form-input" id="upLatin" placeholder="如：Ailuropoda melanoleuca"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div class="form-group"><label class="form-label">分类</label><select class="form-select" id="upCategory">
+<option value="mammal">哺乳动物</option><option value="bird">鸟类</option><option value="reptile">爬行动物</option>
+<option value="ocean">海洋生物</option><option value="insect">昆虫</option><option value="amphibian">两栖动物</option><option value="other">其他</option></select></div>
+<div class="form-group"><label class="form-label">稀有度 (1-10)</label><select class="form-select" id="upRarity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div></div>
+<div class="form-group"><label class="form-label">观察地点</label><input type="text" class="form-input" id="upLocation" placeholder="如：四川卧龙"></div>
+<div class="form-group"><label class="form-label">选择 Emoji 图标</label><div class="emoji-grid" id="emojiGrid"><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐦</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐢</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦋</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦌</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐼</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦅</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐬</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦈</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐸</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦎</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐊</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦩</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐠</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🪲</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦊</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐯</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐘</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦁</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐒</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦜</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐧</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐳</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐙</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦑</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦀</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐝</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐞</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🦂</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐍</button><button type="button" class="emoji-btn" onclick="selectEmoji(this)">🐇</button></div></div>
+<div class="form-group"><label class="form-label">备注</label><textarea class="form-textarea" id="upNotes" placeholder="描述你的观察..."></textarea></div>
+<button class="form-btn" onclick="submitObservation()"><i class="fas fa-upload"></i> 提交观察记录</button>
+</div></div></div>
+
+<!-- NEW DISCOVERY -->
+<div class="modal-overlay" id="discoveryModal">
+<div class="modal-card"><button class="modal-close" onclick="hideModal('discoveryModal')">&times;</button>
+<div class="modal-title"><i class="fas fa-microscope" style="color:var(--green)"></i> 提交新物种发现</div>
+<div id="discNeedLogin" style="text-align:center;padding:20px;color:var(--text-muted)">
+请先 <a style="color:var(--green);cursor:pointer;font-weight:600" onclick="hideModal('discoveryModal');showModal('loginModal')">登录</a> 后提交
+</div>
+<div id="discForm" style="display:none">
+<div class="form-group"><label class="form-label">物种名称 *</label><input type="text" class="form-input" id="dName" placeholder="新物种名称"></div>
+<div class="form-group"><label class="form-label">科属</label><input type="text" class="form-input" id="dFamily" placeholder="如：树蛙属"></div>
+<div class="form-group"><label class="form-label">选择 Emoji 图标</label><div class="emoji-grid" id="emojiGrid2"><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐦</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐢</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦋</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦌</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐼</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦅</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐬</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦈</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐸</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦎</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐊</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦩</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐠</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🪲</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦊</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐯</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐘</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦁</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐒</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦜</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐧</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐳</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐙</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦑</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦀</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐝</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐞</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🦂</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐍</button><button type="button" class="emoji-btn" onclick="selectEmoji2(this)">🐇</button></div></div>
+<div class="form-group"><label class="form-label">描述</label><textarea class="form-textarea" id="dDesc" placeholder="描述这次发现..."></textarea></div>
+<button class="form-btn" onclick="submitDiscovery()"><i class="fas fa-paper-plane"></i> 提交发现记录</button>
+</div></div></div>
+
+<!-- FOOTER -->
+<footer class="ft"><div class="ft-inner"><div>
+<h4><svg width="20" height="20" viewBox="0 0 64 64" fill="none"><path d="M32 4C32 4 8 18 8 38C8 52 18 60 32 60C46 60 56 52 56 38C56 18 32 4 32 4Z" fill="#4CAF50"/><circle cx="32" cy="32" r="8" fill="#fff" opacity=".9"/><circle cx="32" cy="32" r="5.5" fill="#2E7D32"/><circle cx="32" cy="32" r="3" fill="#1B5E20"/><circle cx="30" cy="30.5" r="1.2" fill="#fff" opacity=".8"/></svg> 自然纪</h4>
+<p>自然纪是一个非营利科学平台，致力于连接自然爱好者与科学研究。</p>
+<div class="ft-social"><a href="#"><i class="fab fa-weixin"></i></a><a href="#"><i class="fab fa-weibo"></i></a><a href="#"><i class="fab fa-bilibili"></i></a><a href="#"><i class="fas fa-rss"></i></a></div>
+</div><div><h4>关于我们</h4><ul class="ft-links"><li><a href="#">平台介绍</a></li><li><a href="#">团队</a></li><li><a href="#">合作</a></li></ul></div>
+<div><h4>帮助</h4><ul class="ft-links"><li><a href="#">使用指南</a></li><li><a href="#">常见问题</a></li><li><a href="#">社区准则</a></li></ul></div>
+<div><h4>法律</h4><ul class="ft-links"><li><a href="#">服务条款</a></li><li><a href="#">隐私政策</a></li><li><a href="#">数据许可</a></li></ul></div>
+</div><div class="ft-bottom">&copy; 2026 自然纪 · 探索·记录·保护 | 非营利科学平台 | Powered by Supabase 🌏</div></footer>
+
+<button class="btt" id="btt"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// ================================================================
+// ⚙️ 配置区 — 替换为你的 Supabase 项目信息
+// ================================================================
+const SUPABASE_URL = 'https://nmdwrytqnlmovsyxxflc.supabase.co';       // 如 https://xxxxx.supabase.co
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5tZHdyeXRxbmxtb3ZzeXh4ZmxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5ODA4NTksImV4cCI6MjA5NjU1Njg1OX0.PEfbMiwde_dkD0s1CtzwU_6Nvi9UPE6GIAXfqRwY2mI'; // 你的 anon public key
+// ================================================================
+
+const _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// === STATE ===
+let currentUser = null;
+let currentProfile = null;
+let allObs = [];
+let allDisc = [];
+let selectedEmoji = '🐾';
+let selectedEmoji2 = '🔬';
+
+// === INIT ===
+document.addEventListener('DOMContentLoaded', async () => {{
+    initTheme(); initUI();
+    await checkAuth();
+    await Promise.all([loadObservations(), loadDiscoveries(), loadStats()]);
+    subscribeRealtime();
+    initAnimations();
+}});
+
+// === THEME ===
+function initTheme() {{
+    const t = localStorage.getItem('theme');
+    if(t) {{ document.body.setAttribute('data-theme',t); document.getElementById('themeBtn').innerHTML = t==='dark'?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>'; }}
+}}
+document.getElementById('themeBtn').addEventListener('click', () => {{
+    const d = document.body.getAttribute('data-theme')==='dark';
+    document.body.setAttribute('data-theme', d?'light':'dark');
+    document.getElementById('themeBtn').innerHTML = d?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme', d?'light':'dark');
+}});
+
+// === UI HELPERS ===
+function initUI() {{
+    window.addEventListener('scroll', () => {{
+        document.getElementById('nav').classList.toggle('scrolled', scrollY>30);
+        document.getElementById('btt').classList.toggle('show', scrollY>500);
+    }}, {{passive:true}});
+    document.getElementById('btt').addEventListener('click', () => window.scrollTo({{top:0,behavior:'smooth'}}));
+    const hbg=document.getElementById('hbg'),mm=document.getElementById('mm'); let mo=false;
+    hbg.addEventListener('click',()=>{{mo=!mo;mm.classList.toggle('open',mo);hbg.innerHTML=mo?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>'}});
+    document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{{if(e.target===m)hideModal(m.id)}}));
+}}
+function initAnimations() {{
+    const o=new IntersectionObserver(es=>{{es.forEach((e,i)=>{{if(e.isIntersecting){{setTimeout(()=>e.target.classList.add('v'),i*50);o.unobserve(e.target);}}}});}},{{threshold:.06}});
+    document.querySelectorAll('.fi').forEach(el=>o.observe(el));
+}}
+function showModal(id) {{ document.getElementById(id).classList.add('active'); document.body.style.overflow='hidden'; }}
+function hideModal(id) {{ document.getElementById(id).classList.remove('active'); document.body.style.overflow=''; }}
+function showToast(msg, type='info') {{
+    const t=document.createElement('div'); t.className='toast toast-'+type; t.innerHTML=msg;
+    document.getElementById('toastBox').appendChild(t);
+    setTimeout(()=>{{t.style.opacity='0';t.style.transform='translateX(80px)';setTimeout(()=>t.remove(),300)}}, 4000);
+}}
+function timeAgo(d) {{
+    const s=Math.floor((Date.now()-new Date(d))/1000);
+    if(s<60) return '刚刚'; if(s<3600) return Math.floor(s/60)+'分钟前';
+    if(s<86400) return Math.floor(s/3600)+'小时前'; if(s<604800) return Math.floor(s/86400)+'天前';
+    return new Date(d).toLocaleDateString('zh-CN');
+}}
+function rarityInfo(lv) {{
+    if(lv<=3) return {{cls:'r'+lv,label:'常见'}};if(lv<=5) return {{cls:'r'+lv,label:'少见'}};
+    if(lv<=7) return {{cls:'r'+lv,label:'稀有'}};if(lv<=9) return {{cls:'r'+lv,label:'珍稀'}};return {{cls:'r10',label:'极危'}};
+}}
+function catGradient(c) {{ return 'g-'+(c||'other'); }}
+function selectEmoji(el) {{ document.querySelectorAll('#emojiGrid .emoji-btn').forEach(b=>b.classList.remove('sel')); el.classList.add('sel'); selectedEmoji=el.textContent; }}
+function selectEmoji2(el) {{ document.querySelectorAll('#emojiGrid2 .emoji-btn').forEach(b=>b.classList.remove('sel')); el.classList.add('sel'); selectedEmoji2=el.textContent; }}
+
+// === AUTH ===
+async function checkAuth() {{
+    const {{data:{{session}}}} = await _sb.auth.getSession();
+    if(session) {{ currentUser=session.user; await loadProfile(); }}
+    updateAuthUI();
+    _sb.auth.onAuthStateChange(async(ev,session)=>{{
+        currentUser=session?.user||null;
+        if(currentUser) await loadProfile(); else currentProfile=null;
+        updateAuthUI();
+    }});
+}}
+async function loadProfile() {{
+    if(!currentUser) return;
+    const {{data}}=await _sb.from('profiles').select('*').eq('id',currentUser.id).single();
+    currentProfile=data;
+}}
+function updateAuthUI() {{
+    const lo=document.getElementById('authLoggedOut'),li=document.getElementById('authLoggedIn');
+    if(currentUser) {{
+        lo.style.display='none'; li.style.display='flex';
+        const name=currentProfile?.username||currentUser.email.split('@')[0];
+        document.getElementById('userName').textContent=name;
+        document.getElementById('userAvatar').textContent=(name[0]||'U').toUpperCase();
+        document.getElementById('uploadNeedLogin').style.display='none';
+        document.getElementById('uploadForm').style.display='block';
+        document.getElementById('discNeedLogin').style.display='none';
+        document.getElementById('discForm').style.display='block';
+    }} else {{
+        lo.style.display='flex'; li.style.display='none';
+        document.getElementById('uploadNeedLogin').style.display='block';
+        document.getElementById('uploadForm').style.display='none';
+        document.getElementById('discNeedLogin').style.display='block';
+        document.getElementById('discForm').style.display='none';
+    }}
+}}
+async function signIn() {{
+    const email=document.getElementById('loginEmail').value.trim();
+    const pwd=document.getElementById('loginPwd').value;
+    if(!email||!pwd) return showErr('loginError','请填写邮箱和密码');
+    document.getElementById('loginBtn').disabled=true;
+    const {{error}}=await _sb.auth.signInWithPassword({{email,password:pwd}});
+    document.getElementById('loginBtn').disabled=false;
+    if(error) return showErr('loginError',error.message);
+    hideModal('loginModal'); showToast('✅ 登录成功！欢迎回来','success');
+}}
+async function signUp() {{
+    const name=document.getElementById('regName').value.trim();
+    const email=document.getElementById('regEmail').value.trim();
+    const pwd=document.getElementById('regPwd').value;
+    if(!name||!email||!pwd) return showErr('regError','请填写所有字段');
+    if(pwd.length<6) return showErr('regError','密码至少6位');
+    document.getElementById('regBtn').disabled=true;
+    const {{error}}=await _sb.auth.signUp({{email,password:pwd,options:{{data:{{username:name}}}}}});
+    document.getElementById('regBtn').disabled=false;
+    if(error) return showErr('regError',error.message);
+    hideModal('registerModal'); showToast('✅ 注册成功！请查收验证邮件','success');
+}}
+async function signOut() {{
+    await _sb.auth.signOut();
+    showToast('👋 已退出登录','info');
+}}
+function showErr(id,msg) {{ const el=document.getElementById(id);el.textContent=msg;el.style.display='block';setTimeout(()=>el.style.display='none',5000); }}
+
+// === DATA LOADING ===
+async function loadObservations() {{
+    const {{data,error}}=await _sb.from('observations').select('*').order('created_at',{{ascending:false}}).limit(50);
+    if(error) {{ console.error(error); return; }}
+    allObs=data||[]; renderObservations(allObs); renderActivity(allObs);
+}}
+async function loadDiscoveries() {{
+    const {{data,error}}=await _sb.from('discoveries').select('*').order('created_at',{{ascending:false}}).limit(20);
+    if(error) {{ console.error(error); return; }}
+    allDisc=data||[]; renderDiscoveries(allDisc);
+}}
+async function loadStats() {{
+    const [o,s,d]=await Promise.all([
+        _sb.from('observations').select('id',{{count:'exact',head:true}}),
+        _sb.from('species').select('id',{{count:'exact',head:true}}),
+        _sb.from('discoveries').select('id',{{count:'exact',head:true}})
+    ]);
+    animateNum('statObs', (o.count||8)+5892333);
+    animateNum('statUsers', 2341567);
+    animateNum('statSpecies', (s.count||12)+128753);
+    animateNum('statDisc', (d.count||4)+496);
+}}
+function animateNum(id,target) {{
+    const el=document.getElementById(id); let c=0; const step=target/(2000/16);
+    const tick=()=>{{c+=step;if(c<target){{el.textContent=Math.floor(c).toLocaleString();requestAnimationFrame(tick)}}else{{el.textContent=target.toLocaleString()}}}};tick();
+}}
+
+// === RENDER ===
+function renderObservations(data) {{
+    const g=document.getElementById('obsGrid');
+    if(!data.length) {{ g.innerHTML='<div class="no-data">暂无观察记录，<a style="color:var(--green);cursor:pointer" onclick="showModal('uploadModal')">成为第一个上传者</a>！</div>'; return; }}
+    g.innerHTML=data.map(o=>{{
+        const ri=rarityInfo(o.species_rarity||3);
+        const av=(o.username||'匿名')[0].toUpperCase();
+        return `<div class="oc fi v"><div class="oc-img"><div class="oc-img-inner ${{catGradient(o.species_category)}}">${{o.species_emoji||'🐾'}}</div>
+        ${{o.is_research_grade?'<span class="badge-rg">研究级</span>':''}}<span class="badge-r ${{ri.cls}}"><i class="fas fa-gem"></i> Lv.${{o.species_rarity||'?'}} ${{ri.label}}</span></div>
+        <div class="oc-b"><div class="oc-name">${{o.species_name}}</div><div class="oc-latin">${{o.species_latin||''}}</div>
+        <div class="oc-foot"><div class="oc-user"><div class="oc-avatar">${{av}}</div>${{o.username||'匿名'}}</div>
+        <div class="oc-nums"><span><i class="fas fa-heart" style="color:#e57373"></i>${{o.likes||0}}</span><span><i class="fas fa-comment"></i>${{o.comments_count||0}}</span></div></div>
+        <div class="oc-time"><i class="far fa-clock"></i>${{timeAgo(o.created_at)}} · ${{o.location||'未知地点'}}</div></div></div>`;
+    }}).join('');
+}}
+function renderDiscoveries(data) {{
+    const g=document.getElementById('discGrid');
+    if(!data.length) {{ g.innerHTML='<div class="no-data">暂无发现记录</div>'; return; }}
+    g.innerHTML=data.map(d=>`<div class="nsc fi v"><div class="nsc-img g-disc"><span class="nsc-badge">新物种</span>${{d.emoji||'🔬'}}</div>
+    <div class="nsc-b"><div class="nsc-name">${{d.name_cn}}</div><div class="nsc-fam">${{d.family||''}} <span class="badge-r-inline r10">Lv.10 极危</span></div>
+    <div class="nsc-who">发现者：<b>${{d.username||'匿名'}}</b> · ${{timeAgo(d.created_at)}}</div></div></div>`).join('');
+}}
+function renderActivity(data) {{
+    const f=document.getElementById('activityFeed');
+    const items=data.slice(0,5);
+    if(!items.length) {{ f.innerHTML='<div style="padding:20px;text-align:center;color:var(--text-muted)">暂无动态</div>'; return; }}
+    f.innerHTML=items.map(o=>{{
+        const av=(o.username||'匿名')[0].toUpperCase();
+        return `<div class="act"><div class="act-av">${{av}}</div><div class="act-txt"><div><b>${{o.username||'匿名'}}</b> 观察到了 <span class="hl">${{o.species_name}}</span></div><div class="act-time">${{timeAgo(o.created_at)}}</div></div>
+        <div class="act-thumb ${{catGradient(o.species_category)}}">${{o.species_emoji||'🐾'}}</div></div>`;
+    }}).join('');
+}}
+
+// === FILTER ===
+function filterData() {{
+    const q=document.getElementById('searchInput').value.trim().toLowerCase();
+    const cat=document.getElementById('filterCategory').value;
+    const rar=document.getElementById('filterRarity').value;
+    let filtered=allObs.filter(o=>{{
+        if(q && !(o.species_name||'').toLowerCase().includes(q) && !(o.species_latin||'').toLowerCase().includes(q)) return false;
+        if(cat && o.species_category!==cat) return false;
+        if(rar) {{
+            const r=o.species_rarity||0;
+            const [lo,hi]=rar.includes('-')?rar.split('-').map(Number):[+rar,+rar];
+            if(r<lo||r>hi) return false;
+        }}
+        return true;
+    }});
+    renderObservations(filtered);
+}}
+
+// === SUBMIT ===
+async function submitObservation() {{
+    if(!currentUser) return showToast('请先登录','error');
+    const name=document.getElementById('upName').value.trim();
+    if(!name) return showToast('请填写物种名称','error');
+    const username=currentProfile?.username||currentUser.email.split('@')[0];
+    const {{error}}=await _sb.from('observations').insert({{
+        user_id:currentUser.id, species_name:name,
+        species_latin:document.getElementById('upLatin').value.trim(),
+        species_category:document.getElementById('upCategory').value,
+        species_rarity:+document.getElementById('upRarity').value,
+        species_emoji:selectedEmoji,
+        location:document.getElementById('upLocation').value.trim(),
+        notes:document.getElementById('upNotes').value.trim(),
+        username:username, is_research_grade:false
+    }});
+    if(error) return showToast('提交失败：'+error.message,'error');
+    hideModal('uploadModal'); showToast('🎉 观察记录已提交！','success');
+    ['upName','upLatin','upLocation','upNotes'].forEach(id=>document.getElementById(id).value='');
+    await loadObservations();
+}}
+async function submitDiscovery() {{
+    if(!currentUser) return showToast('请先登录','error');
+    const name=document.getElementById('dName').value.trim();
+    if(!name) return showToast('请填写物种名称','error');
+    const username=currentProfile?.username||currentUser.email.split('@')[0];
+    const {{error}}=await _sb.from('discoveries').insert({{
+        user_id:currentUser.id, name_cn:name,
+        family:document.getElementById('dFamily').value.trim(),
+        emoji:selectedEmoji2, rarity:10,
+        description:document.getElementById('dDesc').value.trim(),
+        username:username
+    }});
+    if(error) return showToast('提交失败：'+error.message,'error');
+    hideModal('discoveryModal'); showToast('🔬 新物种已提交！','success');
+    ['dName','dFamily','dDesc'].forEach(id=>document.getElementById(id).value='');
+    await loadDiscoveries();
+}}
+
+// === REALTIME ===
+function subscribeRealtime() {{
+    _sb.channel('public-changes')
+    .on('postgres_changes',{{event:'INSERT',schema:'public',table:'observations'}},payload=>{{
+        const n=payload.new;
+        if(!currentUser||n.user_id!==currentUser.id) {{
+            showToast(`🆕 ${{n.username||'有人'}} 刚刚提交了新观察：${{n.species_name}}`,'new');
+        }}
+        allObs.unshift(n); renderObservations(allObs); renderActivity(allObs);
+    }})
+    .on('postgres_changes',{{event:'INSERT',schema:'public',table:'discoveries'}},payload=>{{
+        const n=payload.new;
+        if(!currentUser||n.user_id!==currentUser.id) {{
+            showToast(`🔬 ${{n.username||'有人'}} 发现了新物种：${{n.name_cn}}！`,'new');
+        }}
+        allDisc.unshift(n); renderDiscoveries(allDisc);
+    }})
+    .subscribe();
+}}
+</script>
+</body></html>
